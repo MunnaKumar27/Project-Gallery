@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="./imgs/hlogo.png" type="image/x-icon">
+    <title>Resume</title>
+   
+ <style>       
+button[type=submit]{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Assistant", sans-serif;
+}
+
+
+button[type=submit] {
+  margin: 100px 650px;
+  width: 100px;
+  height: 80px;
+  background:rgb(70, 70, 226);
+  border-radius: 20px;
+  will-change: transform;
+  transition: all 0.4s ease;
+  border: 1px solid #FFFF9D;
+  cursor: pointer;
+  font-size: 17px;
+  color: #ffffff;
+  outline: none;
+  text-align: center;
+}
+button[type=submit]:hover {
+  background: #e76c1f;
+  color: #ffffff;
+}
+button[type=submit]:active {
+  font-size: 14px;
+  transform: translateY(1px);
+}
+button[type=submit].active {
+  font-size: 0;
+  border-radius: 25px;
+  height: 50px;
+  width: 50px;
+  background: transparent;
+}
+button[type=submit].loader {
+  border-right: 2px solid #ffffff;
+  animation: loader 0.8s linear infinite;
+}
+button[type=submit].success {
+  background: #3BB873;
+  border-color: #3BB873;
+  width: 100px;
+  height: 35px;
+  border-radius: 20px;
+  font-size: 17px;
+  color: #ffffff;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+</style>    
+</head>
+<body>
+    <header class="header">
+		<h1 class="logo"><a href="#">Projects gallery</a></h1>
+      <ul class="main-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="https://munnaportfolio.ml/">Portfolio</a></li>
+          <li><a href="acheivements.html">achievements</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+	</header>
+    
+        <button class="bttn" type="submit">Download Now</button>
+        <p style="color: rgb(0, 0, 0); margin: 0px 570px;"> The download will begin in <strong><span id="countdowntimer" style="color: rgb(3, 14, 228);">15 </span> </strong>Seconds</p>
+    
+</body>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+    
+    $(document).ready(function() {
+	var $button = $('button[type="submit"]');
+	
+	$button.on('click', function() {
+		var $this = $(this);
+		if($this.hasClass('active') || $this.hasClass('success')) {
+			return false;
+		}
+		$this.addClass('active');
+		setTimeout(function() {
+			$this.addClass('loader');
+		}, 200);
+		setTimeout(function() {
+			$this.removeClass('loader active');
+			$this.html('Success');
+            window.location="https://munnaportfolio.ml/Resume.pdf";
+			$this.addClass('success animated pulse');
+		}, 22000);
+        var timeleft = 15;
+        var downloadTimer = setInterval(function(){
+        timeleft--;
+        document.getElementById("countdowntimer").textContent = timeleft;
+            if(timeleft <= 0)
+         clearInterval(downloadTimer);       
+         },1500);
+		setTimeout(function() {
+			$this.html('Download Now');
+			$this.removeClass('success animated pulse');
+		}, 2900);
+	});
+	
+});
+</script>
+</html>
