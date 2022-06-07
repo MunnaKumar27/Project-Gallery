@@ -29,13 +29,6 @@ a {
 a {
     text-decoration: none;
 }
-/* h2{
-    margin:5rem 18rem;
-    color: rgb(0, 0, 0);
-    font-style: oblique;
-} */
-
-
 
 .logo {
     margin: 0;
@@ -44,7 +37,6 @@ a {
 
 .main-nav {
     margin-top: 5px;
-
 }
 
 .logo a,
@@ -64,8 +56,6 @@ a {
    color:  #0a4a8e;
 }
 
-
-
 .header {
     padding-top: .5em;
     padding-bottom: .5em;
@@ -77,13 +67,11 @@ a {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    /* jkjabfkjb */
+    position:sticky;
+    top:0;
+    z-index: 100;
 }
-/* 
-.prtitle{
-    margin:5rem 18rem;
-    color: rgb(0, 0, 0);
-    font-style: oblique;
-} */
 
 .gallery {
     --anim-time--hi: 266ms;
@@ -97,14 +85,13 @@ a {
     min-height: 100vh;
     margin-inline: auto;
     margin-top: 5rem;
-    padding: clamp(0px, (30rem - 100vw) * 9999, 1rem);
-
+    padding: clamp(0px, (30rem - 100vw) * 9999, 1rem);   
 }
 
 .gallery__content--flow {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 2rem;  
 }
 
 .gallery__content--flow>* {
@@ -130,13 +117,6 @@ figure::before {
     content: '';
     position: absolute;
     inset: 0;
-    /* background: linear-gradient(to top,
-            hsla(0, 0%, 0%, 0.8) 0%,
-            hsla(0, 0%, 0%, 0.7) 12%,
-            hsla(0, 0%, 0%, 0.2) 41.6%,
-            hsla(0, 0%, 0%, 0.125) 50%,
-            hsla(0, 0%, 0%, 0.01) 59.9%,
-            hsla(0, 0%, 0%, 0) 100%); */
     opacity: 0;
     transition-property: opacity, transform;
     transition-duration: var(--anim-time--med), var(--anim-time--med);
@@ -166,19 +146,15 @@ figure:hover::before {
 
 figure:hover .header__caption {
     transform: translateY(0);
-    opacity: 1;
-    
-    
+    opacity: 1;    
 }
 
 figure:hover img {
-    transform: scale(1);
-    
+    transform: scale(1);   
 }
 
 .title {
     color: #fff;
-
 }
 
 .title--primary {
@@ -194,8 +170,7 @@ figure:hover img {
 .title--secondary {
       font-size: 1.25rem;
     font-weight: bold;
-    color: #000000;
-    
+    color: #000000;    
 }
 
 img {
@@ -222,25 +197,26 @@ img {
 
     .header,
     .main-nav {
-        display: flex;
+        display: flex;     
     }
 
     .header {
         flex-direction: column;
         align-items: center;
-
         width: 80%;
         margin: 0 auto;
-        max-width: 1150px;
-
+        max-width: 1150px;       
     }
-
 }
 
 @media (min-width: 1025px) {
     .header {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-between;       
     }
-
+}
+@media (max-width: 1025px) {
+    .header{
+        position: relative;
+    }
 }
